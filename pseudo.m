@@ -8,9 +8,16 @@ int posix_spawnattr_set_persona_gid_np(const posix_spawnattr_t* __restrict, uid_
 
 int main(int argc, char** argv) {
   if (argc < 2) {
-    fprintf(stderr, "usage: spawn_root <command> <to> <run>\n");
+    fprintf(stderr, "usage: pseudo <command> <to> <run>\n");
     return 1;
   }
+  
+  if (strcmp(argv[1], "--version") == 0) {
+    fprintf(stdout, "pseudo 1.0 – A sudo alternative for iOS\n");
+    fprintf(stdout, "(c) 2023 BomberFish Industries.\n");
+    return 0;
+  }
+
   posix_spawnattr_t attr;
   posix_spawnattr_init(&attr);
   posix_spawnattr_set_persona_np(&attr, /*persona_id=*/99, POSIX_SPAWN_PERSONA_FLAGS_OVERRIDE);
