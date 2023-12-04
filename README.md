@@ -5,3 +5,9 @@
 ## Building
 
 First, clone [ChOma](https://github.com/opa334/ChOma) to your home directory and build everything. Then, build pseudo with `make`.
+
+## Usage
+
+```
+pseudo <command> <to> <run>
+```
